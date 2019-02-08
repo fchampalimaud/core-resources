@@ -34,6 +34,6 @@ class RoomsListWidget(ResourcesListWidget):
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL
     ORQUESTRA_MENU = 'middle-left>DashboardApp'
-    ORQUESTRA_MENU_ICON = 'building'
+    ORQUESTRA_MENU_ICON = 'cube'
     ORQUESTRA_MENU_ORDER = 1
     # =========================================================================

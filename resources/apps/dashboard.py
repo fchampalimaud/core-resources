@@ -16,7 +16,7 @@ class DashboardApp(BaseWidget):
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left'
-    ORQUESTRA_MENU_ICON = 'cubes'
+    ORQUESTRA_MENU_ICON = 'boxes'
     ORQUESTRA_MENU_ORDER = 50
 
     def __init__(self, *args, **kwargs):

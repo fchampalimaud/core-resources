@@ -13,7 +13,9 @@ class ResourcesConfig(AppConfig):
         from .areas.list import AreasListWidget
         from .rooms.list import RoomsListWidget
         from .equipments import EquipmentListWidget
-        from .resources.access_request import AccessRequestList
+        from .resources.requests.list import AccessRequestList
+        from .equipments.categories_list import CategoriesList
+        from .resources.requests.user_request_form import UserRequestForm
 
         #  and place them in the global scope
         global ResourceAccessList
@@ -23,3 +25,5 @@ class ResourcesConfig(AppConfig):
         global RoomsListWidget
         global EquipmentListWidget
         global AccessRequestList
+        global CategoriesList
+        global UserRequestForm

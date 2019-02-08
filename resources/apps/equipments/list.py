@@ -132,6 +132,6 @@ class EquipmentListWidget(ResourcesListWidget):
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left>DashboardApp'
-    ORQUESTRA_MENU_ICON = 'cubes'
+    ORQUESTRA_MENU_ICON = 'microchip'
     ORQUESTRA_MENU_ORDER = 3
     # =========================================================================
