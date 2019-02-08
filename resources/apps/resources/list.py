@@ -1,6 +1,4 @@
 from pyforms_web.widgets.django import ModelAdminWidget
-from pyforms_web.widgets.django import ModelFormWidget
-
 from resources.models.resource import Resource
 
 from .images import ImagesListWidget

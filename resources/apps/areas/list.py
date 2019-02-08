@@ -2,16 +2,11 @@ from confapp import conf
 
 from resources.models import Area
 
-from .resources.list import ResourcesListWidget
-from .resources.form import ResourceFormWidget
+from resources.apps.resources.list import ResourcesListWidget
 
-class AreasEditForm(ResourceFormWidget):
-    FIELDSETS = ['name', 'rooms', 'description']
-
+from .form import AreasEditForm
 
 class AreasListWidget(ResourcesListWidget):
-    """
-    """
 
     UID = 'areas'
     TITLE = 'Areas'
@@ -20,7 +15,7 @@ class AreasListWidget(ResourcesListWidget):
 
     EDITFORM_CLASS = AreasEditForm
 
-    LIST_DISPLAY = ['name', 'ImagesListWidget']
+    LIST_DISPLAY = ['name']
 
     LIST_FILTER = ['rooms']
 
@@ -30,5 +25,5 @@ class AreasListWidget(ResourcesListWidget):
     LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL
     ORQUESTRA_MENU = 'middle-left>DashboardApp'
     ORQUESTRA_MENU_ICON = 'map'
-    ORQUESTRA_MENU_ORDER = 1
+    ORQUESTRA_MENU_ORDER = 2
     # =========================================================================

@@ -1,3 +1,3 @@
-from .equipments import EquipmentListWidget
+from .list import EquipmentListWidget
 
 __all__ = [EquipmentListWidget]

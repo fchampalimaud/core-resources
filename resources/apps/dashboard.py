@@ -15,7 +15,6 @@ class DashboardApp(BaseWidget):
     TITLE = 'Resources'
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
-
     ORQUESTRA_MENU = 'middle-left'
     ORQUESTRA_MENU_ICON = 'cubes'
     ORQUESTRA_MENU_ORDER = 50

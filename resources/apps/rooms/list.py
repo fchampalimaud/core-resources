@@ -2,13 +2,9 @@ from confapp import conf
 
 from resources.models import Room
 
-from .resources.list import ResourcesListWidget
-from .resources.form import ResourceFormWidget
-
-
-class RoomsEditForm(ResourceFormWidget):
-    FIELDSETS = [('name', 'building_floor', 'biosafety_level'), 'description']
-
+from resources.apps.resources.list import ResourcesListWidget
+from .form import RoomsEditForm
+from .create import RoomCreateForm
 
 class RoomsListWidget(ResourcesListWidget):
     """
@@ -19,6 +15,8 @@ class RoomsListWidget(ResourcesListWidget):
 
     MODEL = Room
 
+
+    ADDFORM_CLASS = RoomCreateForm
     EDITFORM_CLASS = RoomsEditForm
 
     LIST_DISPLAY = ['name', 'building_floor', 'biosafety_level']
@@ -26,6 +24,12 @@ class RoomsListWidget(ResourcesListWidget):
     LIST_FILTER = ['building_floor', 'biosafety_level']
 
     SEARCH_FIELDS = ['name__icontains']
+
+
+
+    USE_DETAILS_TO_EDIT = False
+
+
 
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL

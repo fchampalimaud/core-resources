@@ -4,9 +4,33 @@ from resources.models import Resource
 from .images import ImagesListWidget
 from .maintenance import MaintenanceListWidget
 from .maintenance_contract import MaintenanceContractListWidget
+from .access import ResourceAccessList
+
+
+class InlineResourceAccessList(ResourceAccessList):
+    pass
+
 
 class ResourceFormWidget(ModelFormWidget):
     MODEL = Resource
 
-    INLINES = [ImagesListWidget, MaintenanceListWidget, MaintenanceContractListWidget]
     FIELDSETS = ['name', 'description']
+
+    INLINES = [
+        ImagesListWidget,
+        MaintenanceListWidget,
+        MaintenanceContractListWidget,
+        InlineResourceAccessList
+    ]
+
+    @property
+    def title(self):
+        obj = self.model_object
+        if obj is None:
+            return ModelFormWidget.title.fget(self)
+        else:
+            return obj.name
+
+    @title.setter
+    def title(self, value):
+        ModelFormWidget.title.fset(self, value)

@@ -16,6 +16,7 @@ class BuildingForm(ResourceFormWidget):
             'a:Building':[
                 'name',
                 'description',
+                'biosafety_risks',
                 segment(
                     'FloorsListWidget',
                     css='secondary'

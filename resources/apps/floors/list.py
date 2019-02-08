@@ -15,8 +15,10 @@ class FloorsListWidget(ModelAdminWidget):
     LIST_DISPLAY = ['name', 'level', 'at_building']
     SEARCH_FIELDS = ['name__icontains']
 
+    USE_DETAILS_TO_EDIT = False
+
     # Orquestra ===============================================================
-    LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL
+    LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left>DashboardApp'
     ORQUESTRA_MENU_ICON = 'building'
     ORQUESTRA_MENU_ORDER = 1

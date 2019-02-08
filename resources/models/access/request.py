@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 from model_utils.models import StatusModel
 from model_utils import Choices
 
@@ -10,7 +9,4 @@ class AccessRequest(StatusModel):
         ('approved', 'Approved'),
         ('rejected', 'Rejected'),
     )
-    requested_on = models.DateTimeField(default=timezone.now, blank=True)
-
-    class Meta:
-        abstract = True
+    requested_on = models.DateTimeField(auto_now_add=True, blank=True)

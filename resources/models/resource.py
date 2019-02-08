@@ -13,6 +13,8 @@ class Resource(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(blank=True)
 
+    biosafety_risks = models.ManyToManyField('biosafety.Risk', blank=False)
+
     objects = InheritanceManager()
 
     def __str__(self):
