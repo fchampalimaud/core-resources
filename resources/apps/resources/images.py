@@ -6,3 +6,5 @@ class ImagesListWidget(ModelAdminWidget):
     MODEL = Image
     LIST_DISPLAY = ['image']
     FIELDSETS = ['image']
+
+    TITLE = 'Images'

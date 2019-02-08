@@ -2,10 +2,11 @@ from confapp import conf
 
 from resources.models import Room
 
-from .resources import ResourcesListWidget, ResourcesEditFormWidget
+from .resources.list import ResourcesListWidget
+from .resources.form import ResourceFormWidget
 
 
-class RoomsEditForm(ResourcesEditFormWidget):
+class RoomsEditForm(ResourceFormWidget):
     FIELDSETS = [('name', 'building_floor', 'biosafety_level'), 'description']
 
 
@@ -28,7 +29,7 @@ class RoomsListWidget(ResourcesListWidget):
 
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL
-    ORQUESTRA_MENU = 'left>DashboardApp'
+    ORQUESTRA_MENU = 'middle-left>DashboardApp'
     ORQUESTRA_MENU_ICON = 'building'
     ORQUESTRA_MENU_ORDER = 1
     # =========================================================================

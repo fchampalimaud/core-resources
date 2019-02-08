@@ -7,11 +7,7 @@ from .images import ImagesListWidget
 from .maintenance import MaintenanceListWidget
 from .maintenance_contract import MaintenanceContractListWidget
 
-
-class ResourcesEditFormWidget(ModelFormWidget):
-    MODEL = Resource
-    FIELDSETS = ['name', 'description']
-
+from .form import ResourceFormWidget
 
 class ResourcesListWidget(ModelAdminWidget):
     """
@@ -23,7 +19,7 @@ class ResourcesListWidget(ModelAdminWidget):
 
     MODEL = Resource
 
-    EDITFORM_CLASS = ResourcesEditFormWidget
+    EDITFORM_CLASS = ResourceFormWidget
 
     LIST_DISPLAY = ['name']
     SEARCH_FIELDS = ['name__icontains']

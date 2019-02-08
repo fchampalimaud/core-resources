@@ -12,7 +12,8 @@ from resources.models import Equipment
 from resources.models import EquipmentCategory
 from resources.models import EquipmentSection
 
-from ..resources import ResourcesListWidget, ResourcesEditFormWidget
+from ..resources.list import ResourcesListWidget
+from ..resources.form import ResourceFormWidget
 
 
 STYLE_SEGMENT_BASIC = 'border: 0; box-shadow: 0 0; padding: 0'
@@ -47,7 +48,7 @@ class EquipmentCategoryAddForm(BaseWidget):
             self.close()
 
 
-class EquipmentEditForm(ResourcesEditFormWidget):
+class EquipmentEditForm(ResourceFormWidget):
     FIELDSETS = [
         ('name', 'location', 'category', '_new_category_btn'),
         {
@@ -130,7 +131,7 @@ class EquipmentListWidget(ResourcesListWidget):
 
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
-    ORQUESTRA_MENU = 'left>DashboardApp'
+    ORQUESTRA_MENU = 'middle-left>DashboardApp'
     ORQUESTRA_MENU_ICON = 'cubes'
     ORQUESTRA_MENU_ORDER = 1
     # =========================================================================

@@ -8,8 +8,7 @@ class ResourcesConfig(AppConfig):
     def ready(self):
         # Import PyForms apps
         from .dashboard import DashboardApp
-        from .buildings import BuildingsListWidget
-        from .floors import FloorsListWidget
+        from .buildings.list import BuildingsListWidget
         from .areas import AreasListWidget
         from .rooms import RoomsListWidget
         from .equipments import EquipmentListWidget
@@ -17,7 +16,6 @@ class ResourcesConfig(AppConfig):
         #  and place them in the global scope
         global DashboardApp
         global BuildingsListWidget
-        global FloorsListWidget
         global AreasListWidget
         global RoomsListWidget
         global EquipmentListWidget

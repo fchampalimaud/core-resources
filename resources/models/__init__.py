@@ -10,3 +10,4 @@ from .room import Room
 from .equipment.category import EquipmentCategory
 from .equipment.section import EquipmentSection
 from .equipment.equipment import Equipment
+from .resource import Resource

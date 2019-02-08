@@ -2,10 +2,10 @@ from confapp import conf
 
 from resources.models import Area
 
-from .resources import ResourcesListWidget, ResourcesEditFormWidget
+from .resources.list import ResourcesListWidget
+from .resources.form import ResourceFormWidget
 
-
-class AreasEditForm(ResourcesEditFormWidget):
+class AreasEditForm(ResourceFormWidget):
     FIELDSETS = ['name', 'rooms', 'description']
 
 
@@ -28,7 +28,7 @@ class AreasListWidget(ResourcesListWidget):
 
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL
-    ORQUESTRA_MENU = 'left>DashboardApp'
+    ORQUESTRA_MENU = 'middle-left>DashboardApp'
     ORQUESTRA_MENU_ICON = 'map'
     ORQUESTRA_MENU_ORDER = 1
     # =========================================================================
