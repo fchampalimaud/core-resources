@@ -1,0 +1,34 @@
+<div class="ui four statistics">
+    <div class="ui statistic">
+        <div class="value">
+            {{ num_equipments }}
+        </div>
+        <div class="label">
+            Equipment{{ num_equipments|pluralize }}
+        </div>
+    </div>
+    <div class="ui {% if num_missing_details %}red{% else %}green{% endif %} statistic">
+        <div class="value">
+            {{ num_missing_details }}
+        </div>
+        <div class="label">
+            Missing</br>details
+        </div>
+    </div>
+    <div class="ui {% if num_uncovered %}red{% else %}green{% endif %} statistic">
+        <div class="value">
+            {{ num_uncovered }}
+        </div>
+        <div class="label">
+            Missing</br>maintenance contract
+        </div>
+    </div>
+    <div class="ui {% if num_unavailable %}red{% else %}green{% endif %} statistic">
+        <div class="value">
+            {{ num_unavailable }}
+        </div>
+        <div class="label">
+            Unavailable
+        </div>
+    </div>
+</div>
