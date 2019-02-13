@@ -15,11 +15,19 @@ class FloorsEditForm(ResourceFormWidget):
     ]
 
     FIELDSETS = [
-        ('name', 'level'),
-        'description',
-        'biosafety_risks',
-        segment(
-            'RoomsListWidget',
-            css='red'
-        )
+        {
+            'a:Floor':[
+                ('name', 'level', 'req_access'),
+                'description',
+                'biosafety_risks',
+                segment(
+                    'RoomsListWidget',
+                    css='red'
+                )
+            ],
+            'b:Access list': ['InlineResourceAccessList'],
+                             'c:Maintenance contracts': ['MaintenanceContractInlineListWidget'],
+            'e:Maintenance': ['MaintenanceListWidget'],
+            'a:Images': ['ImagesListWidget'],
+        }
     ]

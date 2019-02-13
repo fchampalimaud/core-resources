@@ -14,7 +14,7 @@ class BuildingForm(ResourceFormWidget):
     FIELDSETS = [
         {
             'a:Building':[
-                'name',
+                ('name','req_access'),
                 'description',
                 'biosafety_risks',
                 segment(
@@ -23,7 +23,7 @@ class BuildingForm(ResourceFormWidget):
                 )
             ],
             'c:Maintenance': 'MaintenanceListWidget',
-            'b:Maintenance contracts': 'MaintenanceContractListWidget',
+            'b:Maintenance contracts': 'MaintenanceContractInlineListWidget',
             'a:Images': 'ImagesListWidget'
         }
     ]

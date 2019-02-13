@@ -17,6 +17,7 @@ class RoomsEditForm(ResourceFormWidget):
         {
             'a:Building': [
                 ('name', 'building_floor', 'biosafety_level'),
+                'req_access',
                 'description',
                 'biosafety_risks',
                 segment(
@@ -25,7 +26,7 @@ class RoomsEditForm(ResourceFormWidget):
                 )
             ],
             'b:Access list': ['InlineResourceAccessList'],
-            'c:Maintenance contracts': ['MaintenanceContractListWidget'],
+            'c:Maintenance contracts': ['MaintenanceContractInlineListWidget'],
             'e:Maintenance': ['MaintenanceListWidget'],
             'a:Images': ['ImagesListWidget'],
         }

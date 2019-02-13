@@ -13,9 +13,15 @@ class Resource(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(blank=True)
 
+    req_access = models.BooleanField('Require access', default=False)
+
     biosafety_risks = models.ManyToManyField('biosafety.Risk', blank=False)
 
     objects = InheritanceManager()
 
     def __str__(self):
         return self.name or f"{self._meta.verbose_name.title()} #{self.id}"
+
+    @staticmethod
+    def autocomplete_search_fields():
+        return ['name__icontains']

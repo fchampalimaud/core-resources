@@ -10,3 +10,5 @@ class AccessRequest(StatusModel):
         ('rejected', 'Rejected'),
     )
     requested_on = models.DateTimeField(auto_now_add=True, blank=True)
+
+    resource = models.ForeignKey('Resource', on_delete=models.CASCADE, limit_choices_to={'req_access': True})
