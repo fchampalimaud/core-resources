@@ -20,6 +20,9 @@ STYLE_SEGMENT_BASIC = 'border: 0; box-shadow: 0 0; padding: 0'
 
 
 class EquipmentRackListWidget(ModelAdminWidget):
+
+    TITLE = 'Racks'
+
     MODEL = EquipmentSection
     LIST_DISPLAY = ['label', 'owners']
     FIELDSETS = [('col', 'row', 'owners')]
@@ -87,9 +90,7 @@ class EquipmentEditForm(ResourceFormWidget):
         },
     ]
 
-    # INLINES = [
-    #     EquipmentRackListWidget,
-    # ]
+    INLINES = ResourceFormWidget.INLINES + [ EquipmentRackListWidget ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
