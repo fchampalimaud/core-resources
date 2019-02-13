@@ -79,11 +79,9 @@ class EquipmentEditForm(ResourceFormWidget):
             '3:Images': ['ImagesListWidget'],
             '4:Racks': ['EquipmentRackListWidget'],
             'Maintenance': [
-                'h3:Contracts',
-                'MaintenanceContractListWidget',
-                ' ',
                 'h3:Interventions',
                 'MaintenanceListWidget',
+                'MaintenanceContractInlineListWidget'
             ],
             'Notes': ['notes'],
         },

@@ -29,3 +29,5 @@ class Maintenance(models.Model):
         on_delete=models.CASCADE,
     )
     resource = models.ForeignKey(to='resources.Resource', on_delete=models.CASCADE)
+
+

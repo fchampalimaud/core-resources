@@ -1,22 +1,27 @@
 from pyforms.basewidget import segment
 from pyforms_web.widgets.django import ModelAdminWidget
-
+from pyforms.controls import ControlCheckBox
 from resources.models import MaintenanceContract
 
-STYLE_SEGMENT_BASIC = 'border: 0; box-shadow: 0 0; padding: 0'
+from .form import MaintenanceContractFormWidget
 
+from confapp import conf
 
 class MaintenanceContractListWidget(ModelAdminWidget):
+
+    UID   = 'maintenance-contracts'
+    TITLE = 'Maintenance contracts'
     MODEL = MaintenanceContract
+
+    EDITFORM_CLASS = MaintenanceContractFormWidget
+
     LIST_DISPLAY = ['id', 'start_date', 'end_date', 'company']
-    FIELDSETS = [
-        (
-            segment(
-                ('start_date', 'end_date'), 'contract_file', style=STYLE_SEGMENT_BASIC
-            ),
-            segment('company', 'notes', style=STYLE_SEGMENT_BASIC),
-        )
-    ]
+
+
+    LAYOUT_POSITION = conf.ORQUESTRA_HOME
+    ORQUESTRA_MENU = 'middle-left>DashboardApp'
+    ORQUESTRA_MENU_ICON = 'wrench'
+    ORQUESTRA_MENU_ORDER = 50
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

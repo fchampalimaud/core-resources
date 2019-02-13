@@ -3,7 +3,7 @@ from resources.models import Resource
 
 from .images import ImagesListWidget
 from .maintenance import MaintenanceListWidget
-from .maintenance_contract import MaintenanceContractListWidget
+from .maintenance_contract.inline_list import MaintenanceContractInlineListWidget
 from .access import ResourceAccessList
 
 
@@ -12,14 +12,15 @@ class InlineResourceAccessList(ResourceAccessList):
 
 
 class ResourceFormWidget(ModelFormWidget):
+
     MODEL = Resource
 
-    FIELDSETS = ['name', 'description']
+    #FIELDSETS = ['name', 'description']
 
     INLINES = [
         ImagesListWidget,
         MaintenanceListWidget,
-        MaintenanceContractListWidget,
+        MaintenanceContractInlineListWidget,
         InlineResourceAccessList
     ]
 

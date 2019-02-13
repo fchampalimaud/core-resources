@@ -1,5 +1,5 @@
 from django.db import models
-
+from .contract_queryset import ContractQuerySet
 
 class MaintenanceContract(models.Model):
     start_date = models.DateField()
@@ -15,5 +15,7 @@ class MaintenanceContract(models.Model):
         to='resources.Resource', related_name='maintenance_contracts'
     )
 
+    objects = ContractQuerySet.as_manager()
+
     def __str__(self):
-        return "Maintenance Contract #{}".format(self.pk)
+        return "Maintenance Contract #{}.{} ({})".format(self.start_date.month, self.start_date.year,self.company)
