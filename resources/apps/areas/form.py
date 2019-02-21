@@ -5,10 +5,12 @@ class AreasEditForm(ResourceFormWidget):
     FIELDSETS = [
         {
             'a:Area': [
-                ('name','req_access'),
+                'name',
                 'description',
                 'rooms',
-                'biosafety_risks'
+                'biosafety_risks',
+                'req_access',
+                'access_req'
             ],
             'c:Maintenance': 'MaintenanceListWidget',
             'b:Maintenance contracts': 'MaintenanceContractInlineListWidget',

@@ -23,7 +23,7 @@ class BuildingsListWidget(ResourcesListWidget):
 
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
-    ORQUESTRA_MENU = 'middle-left>DashboardApp'
+    ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'
     ORQUESTRA_MENU_ICON = 'building'
     ORQUESTRA_MENU_ORDER = 0
     # =========================================================================

@@ -14,9 +14,11 @@ class BuildingForm(ResourceFormWidget):
     FIELDSETS = [
         {
             'a:Building':[
-                ('name','req_access'),
+                'name',
                 'description',
                 'biosafety_risks',
+                'req_access',
+                'access_req',
                 segment(
                     'FloorsListWidget',
                     css='secondary'

@@ -11,7 +11,7 @@ class AccessRequestList(ModelAdminWidget):
     LIST_DISPLAY = ['user']
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
-    ORQUESTRA_MENU = 'middle-left>DashboardApp'
+    ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'
     ORQUESTRA_MENU_ICON = 'key'
     ORQUESTRA_MENU_ORDER = 50
 

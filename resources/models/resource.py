@@ -14,6 +14,7 @@ class Resource(models.Model):
     description = models.TextField(blank=True)
 
     req_access = models.BooleanField('Require access', default=False)
+    access_req = models.TextField('Access requirements', blank=True, null=True)
 
     biosafety_risks = models.ManyToManyField('biosafety.Risk', blank=False)
 

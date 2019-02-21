@@ -64,6 +64,8 @@ class EquipmentEditForm(ResourceFormWidget):
                         'sop',
                         style=STYLE_SEGMENT_BASIC,
                     ),
+                    'req_access',
+                    'access_req',
                     segment('url', 'description', style=STYLE_SEGMENT_BASIC),
                 )
             ],
@@ -130,7 +132,7 @@ class EquipmentListWidget(ResourcesListWidget):
 
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
-    ORQUESTRA_MENU = 'middle-left>DashboardApp'
+    ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'
     ORQUESTRA_MENU_ICON = 'microchip'
     ORQUESTRA_MENU_ORDER = 3
     # =========================================================================

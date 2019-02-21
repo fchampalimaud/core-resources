@@ -17,9 +17,10 @@ class RoomsEditForm(ResourceFormWidget):
         {
             'a:Building': [
                 ('name', 'building_floor', 'biosafety_level'),
-                'req_access',
                 'description',
                 'biosafety_risks',
+                'req_access',
+                'access_req',
                 segment(
                     'EquipmentListWidget',
                     css='secondary'

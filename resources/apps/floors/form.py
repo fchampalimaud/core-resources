@@ -18,8 +18,11 @@ class FloorsEditForm(ResourceFormWidget):
         {
             'a:Floor':[
                 ('name', 'level', 'req_access'),
+                'access_req',
                 'description',
                 'biosafety_risks',
+                'req_access',
+                'access_req',
                 segment(
                     'RoomsListWidget',
                     css='red'

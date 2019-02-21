@@ -7,32 +7,32 @@ from pyforms_web.controls.control_template import ControlTemplate
 from resources.models import Equipment
 
 
-class DashboardApp(BaseWidget):
-    """
-    """
+class ResourcesDashboardApp(BaseWidget):
 
-    UID = 'resources'
+
+    UID = 'resources-dashboard'
     TITLE = 'Resources'
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left'
+    ORQUESTRA_MENU_ORDER = 0
     ORQUESTRA_MENU_ICON = 'boxes'
-    ORQUESTRA_MENU_ORDER = 50
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
         self._template = ControlTemplate(template='resources/dashboard.html')
-
+        """
         self._template.value = {
             'num_equipments': Equipment.objects.count(),
             'num_unavailable': Equipment.objects.unavailable().count(),
             'num_uncovered': Equipment.objects.uncovered().count(),
             'num_missing_details': Equipment.objects.missing_details().count(),
-        }
+        }"""
 
         self.formset = ['_template']
 
+    """
     @classmethod
     def has_permissions(cls, user):
         if user.is_superuser:
@@ -42,3 +42,4 @@ class DashboardApp(BaseWidget):
             return True
 
         return False
+    """

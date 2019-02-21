@@ -13,7 +13,11 @@ class AccessRequest(models.Model):
 
     resource  = models.ForeignKey('Resource', on_delete=models.CASCADE, limit_choices_to={'req_access': True})
 
-    reason = models.TextField('Reason', blank=True)
+    reason = models.TextField(
+        'Access details',
+        blank=True,
+        help_text='Why and how you want to access the resource. Describe also if you fulfill the access requirements.'
+    )
 
 
     def accept(self, user):

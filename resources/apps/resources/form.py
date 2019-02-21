@@ -15,14 +15,28 @@ class ResourceFormWidget(ModelFormWidget):
 
     MODEL = Resource
 
-    #FIELDSETS = ['name', 'description']
-
     INLINES = [
         ImagesListWidget,
         MaintenanceListWidget,
         MaintenanceContractInlineListWidget,
         InlineResourceAccessList
     ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.__require_access_changed_evt()
+
+        self.req_access.label_visible = False
+        self.req_access.changed_event = self.__require_access_changed_evt
+
+    def __require_access_changed_evt(self):
+
+        if self.req_access.value:
+            self.access_req.show()
+        else:
+            self.access_req.hide()
+
 
     @property
     def title(self):
