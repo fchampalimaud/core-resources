@@ -4,7 +4,7 @@ from .form import RoomsEditForm
 class RoomCreateForm(RoomsEditForm):
 
     FIELDSETS = [
-        ('name', 'biosafety_level'),
+        ('name', 'building_floor', 'biosafety_level'),
         'description',
         'biosafety_risks'
     ]

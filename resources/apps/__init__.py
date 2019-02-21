@@ -12,6 +12,7 @@ class ResourcesConfig(AppConfig):
         from .buildings.list import BuildingsListWidget
         from .areas.list import AreasListWidget
         from .rooms.list import RoomsListWidget
+        from .floors.list import FloorsListWidget
         from .equipments import EquipmentListWidget
         from .resources.requests.list import AccessRequestList
         from .equipments.categories_list import CategoriesList
@@ -29,3 +30,4 @@ class ResourcesConfig(AppConfig):
         global CategoriesList
         global UserRequestApp
         global MaintenanceContractListWidget
+        global FloorsListWidget

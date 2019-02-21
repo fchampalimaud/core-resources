@@ -17,7 +17,7 @@ class FloorsEditForm(ResourceFormWidget):
     FIELDSETS = [
         {
             'a:Floor':[
-                ('name', 'level', 'req_access'),
+                ('name', 'level', 'at_building','req_access'),
                 'access_req',
                 'description',
                 'biosafety_risks',

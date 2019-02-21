@@ -27,7 +27,7 @@ class ResourceFormWidget(ModelFormWidget):
 
         self.__require_access_changed_evt()
 
-        self.req_access.label_visible = False
+        #self.req_access.label_visible = False
         self.req_access.changed_event = self.__require_access_changed_evt
 
     def __require_access_changed_evt(self):
