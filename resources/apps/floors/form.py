@@ -26,7 +26,8 @@ class FloorsEditForm(ResourceFormWidget):
                 segment(
                     'RoomsListWidget',
                     css='red'
-                )
+                ),
+                'managers'
             ],
             'b:Access list': ['InlineResourceAccessList'],
                              'c:Maintenance contracts': ['MaintenanceContractInlineListWidget'],

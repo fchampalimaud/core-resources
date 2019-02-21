@@ -17,6 +17,7 @@ class Resource(models.Model):
     access_req = models.TextField('Access requirements', blank=True, null=True)
 
     biosafety_risks = models.ManyToManyField('biosafety.Risk', blank=False)
+    managers = models.ManyToManyField('auth.User', blank=True)
 
     objects = InheritanceManager()
 

@@ -24,7 +24,8 @@ class RoomsEditForm(ResourceFormWidget):
                 segment(
                     'EquipmentListWidget',
                     css='secondary'
-                )
+                ),
+                'managers'
             ],
             'b:Access list': ['InlineResourceAccessList'],
             'c:Maintenance contracts': ['MaintenanceContractInlineListWidget'],

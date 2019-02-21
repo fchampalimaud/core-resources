@@ -67,6 +67,7 @@ class EquipmentEditForm(ResourceFormWidget):
                     'req_access',
                     'access_req',
                     segment('url', 'description', style=STYLE_SEGMENT_BASIC),
+                    'managers'
                 )
             ],
             '2:Status': [

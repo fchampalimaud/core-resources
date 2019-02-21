@@ -8,7 +8,7 @@ class AccessRequestList(ModelAdminWidget):
     TITLE = 'Requests'
 
     MODEL = AccessRequest
-    LIST_DISPLAY = ['user']
+    LIST_DISPLAY = ['requested_by','resource', 'requested_on']
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'

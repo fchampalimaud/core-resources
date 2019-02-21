@@ -10,7 +10,8 @@ class AreasEditForm(ResourceFormWidget):
                 'rooms',
                 'biosafety_risks',
                 'req_access',
-                'access_req'
+                'access_req',
+                'managers'
             ],
             'c:Maintenance': 'MaintenanceListWidget',
             'b:Maintenance contracts': 'MaintenanceContractInlineListWidget',

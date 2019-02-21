@@ -22,7 +22,8 @@ class BuildingForm(ResourceFormWidget):
                 segment(
                     'FloorsListWidget',
                     css='secondary'
-                )
+                ),
+                'managers'
             ],
             'c:Maintenance': 'MaintenanceListWidget',
             'b:Maintenance contracts': 'MaintenanceContractInlineListWidget',
