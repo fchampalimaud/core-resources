@@ -12,6 +12,6 @@ class CategoriesList(ModelAdminWidget):
     # Orquestra ===============================================================
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'
-    ORQUESTRA_MENU_ICON = 'cubes'
-    ORQUESTRA_MENU_ORDER = 5
+    ORQUESTRA_MENU_ICON = 'database'
+    ORQUESTRA_MENU_ORDER = 100
     # =========================================================================

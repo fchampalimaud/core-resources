@@ -4,7 +4,7 @@ from resources.models import Resource
 from .images import ImagesListWidget
 from .maintenance import MaintenanceListWidget
 from .maintenance_contract.inline_list import MaintenanceContractInlineListWidget
-from .access import ResourceAccessList
+from .accesses.list import ResourceAccessList
 
 
 class InlineResourceAccessList(ResourceAccessList):

@@ -1,6 +1,6 @@
 from pyforms_web.web.middleware import PyFormsMiddleware
 from pyforms_web.widgets.django import ModelFormWidget
-from resources.models import AccessRequest, Resource
+from resources.models import AccessRequest, Resource, ResourceAccess
 from pyforms.basewidget import BaseWidget
 from confapp import conf
 from pyforms.controls import ControlQueryList
@@ -66,7 +66,7 @@ class UserRequestApp(BaseWidget):
     TITLE = 'Request access'
 
     # Orquestra ===============================================================
-    LAYOUT_POSITION = conf.ORQUESTRA_HOME_FULL
+    LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left'
     ORQUESTRA_MENU_ICON = 'key yellow'
     ORQUESTRA_MENU_ORDER = -1
@@ -87,30 +87,51 @@ class UserRequestApp(BaseWidget):
 
         self._list = ControlQueryList(
             'Requests',
-            list_display=['requested_on', 'resource', 'closed_by', 'closed_on'],
+            list_display=['requested_on', 'resource', 'is_closed', 'is_approved'],
             item_selection_changed_event=self.__item_selection_changed_evt
+        )
+
+        self._accesses = ControlQueryList(
+            'Approved accesses',
+            list_display=['resource', 'start_date', 'end_date', 'is_revoked']
         )
 
         self.formset = [
             '_editform',
             ' ',
+            'h3:Your accesses',
+            '_accesses',
             'h3:Your requests',
-            '_list'
+            '_list',
         ]
 
         self.populate_list()
 
     def __item_selection_changed_evt(self):
-        print('+++++', self.request_form_id)
         request_form = PyFormsMiddleware.get_instance(self.request_form_id)
-        request_form.show_edit_form(
-            pk=self._list.selected_row_id
-        )
 
-        print('-----',self._list.selected_row_id )
+        req = AccessRequest.objects.get(pk=self._list.selected_row_id)
+
+        if req.is_closed():
+            if req.is_approved():
+                self.success_popup('The request was approved!', 'Approved')
+            else:
+                if req.comment:
+                    self.alert_popup(req.comment, title='Rejected!')
+                else:
+                    self.alert_popup('No further information was provided.', title='Rejected!')
+            request_form.show_create_form()
+        else:
+            request_form.show_edit_form(
+                pk=self._list.selected_row_id
+            )
 
 
     def populate_list(self):
         self._list.value = AccessRequest.objects.filter(
             requested_by=PyFormsMiddleware.user()
+        )
+
+        self._accesses.value = ResourceAccess.objects.filter(
+            user=PyFormsMiddleware.user()
         )

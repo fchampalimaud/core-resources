@@ -7,7 +7,7 @@ class ResourcesConfig(AppConfig):
 
     def ready(self):
         # Import PyForms apps
-        from .resources.access import ResourceAccessList
+        from .resources.accesses.list import ResourceAccessList
         from .dashboard import ResourcesDashboardApp
         from .buildings.list import BuildingsListWidget
         from .areas.list import AreasListWidget

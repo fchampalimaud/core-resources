@@ -19,24 +19,54 @@ class AccessRequest(models.Model):
         help_text='Why and how you want to access the resource. Describe also if you fulfill the access requirements.'
     )
 
+    comment = models.TextField(
+        'Comment',
+        blank=True,
+        null=True
+    )
 
-    def accept(self, user):
+    def __str__(self):
+        return f"Requested by [{self.requested_by}] to [{self.resource}]: {self.is_approved()}"
+
+
+    def is_closed(self):
+        return self.closed_on is not None and self.closed_by is not None
+    is_closed.short_description = 'Closed'
+
+    def is_approved(self):
+        if self.is_closed() and self.access is not None:
+            return True
+        elif self.is_closed() and self.access is None:
+            return False
+        else:
+            return None
+    is_approved.short_description = 'Approved'
+
+
+    def accept(self, approved_by, until=None, comment=None):
         now = timezone.now()
 
-        self.closed_by = user
+        self.closed_by = approved_by
         self.closed_on = now
+        self.comment   = comment
 
-        self.access = ResourceAccess(user=user, resource=self.resource, start_date=now)
+        self.access = ResourceAccess(
+            user        = self.requested_by,
+            resource    = self.resource,
+            start_date  = now,
+            end_date    = until,
+            created_by  = approved_by
+        )
         self.access.save()
-
         self.save()
 
-    def reject(self, user):
+    def reject(self, rejected_by, comment=None):
         now = timezone.now()
 
-        self.closed_by = user
+        self.closed_by = rejected_by
         self.closed_on = now
-        self.access = None
+        self.access    = None
+        self.comment   = comment
         self.save()
 
 

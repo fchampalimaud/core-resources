@@ -21,7 +21,7 @@ class MaintenanceContractListWidget(ModelAdminWidget):
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'
     ORQUESTRA_MENU_ICON = 'wrench'
-    ORQUESTRA_MENU_ORDER = 50
+    ORQUESTRA_MENU_ORDER = 30
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
