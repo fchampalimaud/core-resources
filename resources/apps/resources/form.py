@@ -1,4 +1,5 @@
 from pyforms_web.widgets.django import ModelFormWidget
+from pyforms.controls import ControlButton
 from resources.models import Resource
 
 from .images import ImagesListWidget
@@ -24,6 +25,9 @@ class ResourceFormWidget(ModelFormWidget):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        self._contractsbtn = ControlButton('Maintenance contracts', label_visible=False)
+        self._accessesbtn = ControlButton('Users accesses', label_visible=False)
 
         self.__require_access_changed_evt()
 

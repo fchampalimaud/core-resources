@@ -1,32 +1,37 @@
-from pyforms.basewidget import segment
+from pyforms.basewidget import no_columns
 
-from ..floors.list import FloorsListWidget
 from resources.apps.resources.form import ResourceFormWidget
+from pyforms.controls import ControlButton
 from resources.models import Building
-
+from confapp import conf
 
 class BuildingForm(ResourceFormWidget):
 
+    LAYOUT_POSITION = conf.ORQUESTRA_NEW_TAB
+
     MODEL = Building
 
-    INLINES = ResourceFormWidget.INLINES + [FloorsListWidget]
+    INLINES = ResourceFormWidget.INLINES
 
     FIELDSETS = [
         {
-            'a:Building':[
-                'name',
+            'a:Building': [
+                ('name', 'req_access'),
                 'description',
-                'biosafety_risks',
-                'req_access',
+                ('managers', 'biosafety_risks'),
                 'access_req',
-                segment(
-                    'FloorsListWidget',
-                    css='secondary'
-                ),
-                'managers'
+                no_columns('_contractsbtn', '_accessesbtn'),
             ],
-            'c:Maintenance': 'MaintenanceListWidget',
-            'b:Maintenance contracts': 'MaintenanceContractInlineListWidget',
-            'a:Images': 'ImagesListWidget'
+            'b:Images': ['ImagesListWidget'],
+            'b:Interventions': ['MaintenanceListWidget']
         }
     ]
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.name.field_css = 'fourteen wide'
+        self.req_access.field_css = 'three wide'
+
+        

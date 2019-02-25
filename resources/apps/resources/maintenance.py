@@ -9,6 +9,9 @@ STYLE_SEGMENT_BASIC = 'border: 0; box-shadow: 0 0; padding: 0'
 
 
 class MaintenanceFormWidget(ModelFormWidget):
+
+    TITLE = 'Intervention'
+
     FIELDSETS = [
         (
             segment(
@@ -38,6 +41,8 @@ class MaintenanceFormWidget(ModelFormWidget):
 
 
 class MaintenanceListWidget(ModelAdminWidget):
+    TITLE = 'Interventions'
+
     MODEL = Maintenance
     EDITFORM_CLASS = MaintenanceFormWidget
     LIST_DISPLAY = ['date', 'maintenance_type', 'cost', 'company']

@@ -16,6 +16,7 @@ class BuildingsListWidget(ResourcesListWidget):
     MODEL = Building
 
     EDITFORM_CLASS = BuildingForm
+    USE_DETAILS_TO_EDIT = False
 
     LIST_DISPLAY = ['name']
 

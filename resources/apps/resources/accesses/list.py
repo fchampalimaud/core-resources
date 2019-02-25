@@ -5,7 +5,7 @@ from confapp import conf
 
 class ResourceAccessList(ModelAdminWidget):
 
-    UID = 'access-list'
+    UID   = 'access-list'
     TITLE = 'Access list'
 
     MODEL = ResourceAccess
@@ -13,13 +13,16 @@ class ResourceAccessList(ModelAdminWidget):
     ADDFORM_CLASS  = ResourceAccessCreateForm
     EDITFORM_CLASS = ResourceAccessFormWidget
 
-    LIST_DISPLAY = ['resource', 'user', 'start_date', 'end_date', 'is_revoked']
-
-    LIST_FILTER = ['resource', 'user', 'start_date', 'end_date']
-
+    LIST_DISPLAY  = ['resource', 'user', 'start_date', 'end_date', 'is_revoked']
+    LIST_FILTER   = ['resource', 'user', 'start_date', 'end_date']
     SEARCH_FIELDS = ['user__username', 'resource__name']
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
     ORQUESTRA_MENU = 'middle-left>ResourcesDashboardApp'
     ORQUESTRA_MENU_ICON = 'lock yellow'
     ORQUESTRA_MENU_ORDER = 50
+
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
