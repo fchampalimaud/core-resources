@@ -20,14 +20,14 @@ class ResourcesConfig(AppConfig):
         from .resources.maintenance_contract.list import MaintenanceContractListWidget
 
         #  and place them in the global scope
-        global ResourceAccessList
+        #global ResourceAccessList
         global ResourcesDashboardApp
         global BuildingsListWidget
         global AreasListWidget
         global RoomsListWidget
         global EquipmentListWidget
-        global AccessRequestList
+        #global AccessRequestList
         global CategoriesList
-        global UserRequestApp
+        #global UserRequestApp
         global MaintenanceContractListWidget
         global FloorsListWidget

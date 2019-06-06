@@ -14,8 +14,8 @@ class ResourcesDashboardApp(BaseWidget):
     TITLE = 'Resources'
 
     LAYOUT_POSITION = conf.ORQUESTRA_HOME
-    ORQUESTRA_MENU = 'middle-left'
-    ORQUESTRA_MENU_ORDER = 0
+    ORQUESTRA_MENU = 'left'
+    ORQUESTRA_MENU_ORDER = 1000
     ORQUESTRA_MENU_ICON = 'boxes'
 
     def __init__(self, *args, **kwargs):
